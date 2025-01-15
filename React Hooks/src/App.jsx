@@ -2,26 +2,21 @@ import { useState } from "react";
 import "./App.css";
 
 const App = () => {
-  const [car, setCar] = useState({
-    brand: "Bentley",
-    model: "Rome",
-    year: "2025",
-    color: "red",
-  });
+  const [count, setCount] = useState(0);
 
-  const changeColor = () => {
-    setCar((prevCar) => {
-      return { ...prevCar, color: "blue" };
-    });
-  };
+  const increaseCount = () => {
+
+    setCount( (prevCount) => {
+        return prevCount + 1
+    })
+    
+    // setCount((prevCount) => prevCount + 1);
+  }
 
   return (
     <>
-      <h1>My {car.brand}</h1>
-      <h2>
-        It is a {car.color} {car.model} from {car.year}
-      </h2>
-      <button onClick={changeColor}>Blue</button>
+      <h1>Count: {count}</h1>
+      <button onClick={increaseCount}>Increase</button>
     </>
   );
 };
