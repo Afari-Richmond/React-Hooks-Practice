@@ -2,16 +2,26 @@ import { useState } from "react";
 import "./App.css";
 
 const App = () => {
+  const [car, setCar] = useState({
+    brand: "Bentley",
+    model: "Rome",
+    year: "2025",
+    color: "red",
+  });
 
-  const [brand, setBrand] = useState("Bentley");
-  const [model, setModel] = useState("Rome");
-  const [year, setYear] = useState(2025);
-  const [color, setColor] = useState("red");
- 
+  const changeColor = () => {
+    setCar((prevCar) => {
+      return { ...prevCar, color: "blue" };
+    });
+  };
+
   return (
     <>
-     <h1>My {brand}</h1>
-    <h2>It is a {color} {model} from {year}</h2>
+      <h1>My {car.brand}</h1>
+      <h2>
+        It is a {car.color} {car.model} from {car.year}
+      </h2>
+      <button onClick={changeColor}>Blue</button>
     </>
   );
 };
